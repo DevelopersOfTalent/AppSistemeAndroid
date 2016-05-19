@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Appsisteme</string>
+    <string name="name">Nombre:</string>
+    <string name="phoneNumber">Número:</string>
+</resources>
