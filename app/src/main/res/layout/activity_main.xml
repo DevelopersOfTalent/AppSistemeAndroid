@@ -31,5 +31,35 @@
         android:text="notificar"
         android:textSize="24sp"
         android:onClick="notificar"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="enviar notificacion"
+        android:textSize="24sp"
+        android:onClick="enviar"/>
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="descargar notificacion"
+    android:textSize="24sp"
+    android:onClick="getNotificacion"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BIEN"
+        android:textSize="24sp"
+        android:id="@+id/bien"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MAL"
+        android:textSize="24sp"
+        android:id="@+id/mal"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LLAMAME"
+        android:textSize="24sp"
+        android:id="@+id/llamame"/>
 
 </LinearLayout>
