@@ -16,9 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddActivity" />
-        <activity android:name=".ListContactActivity" />
-        <activity android:name=".welcome_activity" />
-        <activity android:name=".loginGuardian"></activity>
+        <activity android:name=".ListContactActivity"></activity>
     </application>
 
 </manifest>
