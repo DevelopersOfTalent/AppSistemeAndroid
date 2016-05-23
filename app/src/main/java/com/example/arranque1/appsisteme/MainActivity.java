@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         etName = (EditText)findViewById(R.id.etName);
         etPhone = (EditText)findViewById(R.id.etPhone);
-
     }
 
     public void iniciar(View v) {startActivity(new Intent(this, AddActivity.class));}
