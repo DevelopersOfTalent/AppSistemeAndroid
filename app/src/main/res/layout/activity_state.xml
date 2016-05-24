@@ -8,32 +8,26 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.arranque1.appsisteme.MainActivity">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:onClick="login"/>
+    tools:context="com.example.arranque1.appsisteme.StateActivity">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vigilante"
-        android:onClick="vigilant"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:text="Vigilado"
-        android:onClick="guarded"/>
+        android:text="BIEN"
+        android:textSize="24sp"
+        android:id="@+id/bien"
+        android:onClick="good"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="asdf"
-        android:onClick="getUser"/>
+        android:text="MAL"
+        android:textSize="24sp"
+        android:id="@+id/mal"
+        android:onClick="bad"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="notificar"
-        android:onClick="notificar"/>
-
+        android:text="LLAMAME"
+        android:textSize="24sp"
+        android:id="@+id/llamame"
+        android:onClick="callme"/>
 </LinearLayout>
