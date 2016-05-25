@@ -14,20 +14,20 @@
         android:layout_height="wrap_content"
         android:text="BIEN"
         android:textSize="24sp"
-        android:id="@+id/bien"
+        android:id="@+id/bGood"
         android:onClick="good"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MAL"
         android:textSize="24sp"
-        android:id="@+id/mal"
+        android:id="@+id/bBad"
         android:onClick="bad"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LLAMAME"
         android:textSize="24sp"
-        android:id="@+id/llamame"
+        android:id="@+id/bCallme"
         android:onClick="callme"/>
 </LinearLayout>

@@ -37,6 +37,8 @@
 
         <activity android:name=".MenuVigilanteActivity" />
         <activity android:name=".RequestActivity" />
+        <activity android:name=".GuardianActivity" />
+        <activity android:name=".GuardedActivity"></activity>
     </application>
 
 </manifest>

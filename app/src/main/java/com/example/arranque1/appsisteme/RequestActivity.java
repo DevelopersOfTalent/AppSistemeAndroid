@@ -26,7 +26,7 @@ public class RequestActivity extends AppCompatActivity {
             OneSignal.postNotification(new JSONObject("{'contents': {'en':'"
                             + MENSAJE
                             + "'}, 'include_player_ids': ['"
-                            + Session.getInstance().getuIdVigilado()
+                            + Session2.getInstance().getuIdVigilado()
                             + "']}"),
                     new OneSignal.PostNotificationResponseHandler() {
                 @Override
