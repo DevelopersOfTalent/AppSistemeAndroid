@@ -28,23 +28,22 @@ public class DaoContacts {
         ContentValues cv = new ContentValues();
         cv.put(NAME,contact.getName());
         cv.put(PHONENUMBER,contact.getPhone());
-        sql.insert(
-                TABLE_NAME, null, cv);
+        sql.insert(TABLE_NAME, null, cv);
         sql.close();
-
     }
+
     public void editContact (Contact contact){
         SQLiteDatabase sql = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(NAME,contact.getName());
+        cv.put(NAME, contact.getName());
         cv.put(PHONENUMBER,contact.getPhone());
-        sql.update(TABLE_NAME, cv, "name=" + String.valueOf(contact.getName()), null);
+        sql.update(TABLE_NAME, cv, "_id = " + String.valueOf(contact.getId()) , null);
         sql.close();
     }
 
     public void deleteContact (Contact contact){
         SQLiteDatabase sql = dbHelper.getWritableDatabase();
-        sql.delete(TABLE_NAME, "name=" + String.valueOf(contact.getName()), null);
+        sql.delete(TABLE_NAME, "_id = " + String.valueOf(contact.getId()), null);
         sql.close();
     }
 
@@ -61,4 +60,5 @@ public class DaoContacts {
         }
         return listContacts;
     }
+
 }
