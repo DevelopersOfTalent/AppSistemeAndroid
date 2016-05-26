@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#53b26e">
+    <!-- The primary full-screen view. This can be replaced with whatever view is needed to present your content, e.g. VideoView, SurfaceView, TextureView, etc. -->
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="130dp"
+        android:src="@drawable/icono_no_persona_asociada" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="Tu cuenta no tenía a nadie asociado."
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="85dp"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="Te estamos vinculando con tu ser querido."
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="120dp"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="¡Enseguida estamos!"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</FrameLayout>

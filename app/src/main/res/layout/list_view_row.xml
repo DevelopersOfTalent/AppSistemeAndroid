@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/white">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logo_sinnombre_mini"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/listText"
+        android:textSize="24sp"
+        android:layout_weight="2"
+        android:clickable="true"
+        android:layout_marginTop="25dp"/>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:id="@+id/settings"
+        android:src="@drawable/settings"
+        android:background="@color/white"
+        android:focusable="false"/>
+
+</LinearLayout>

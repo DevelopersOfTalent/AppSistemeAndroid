@@ -1,10 +1,16 @@
 package com.example.arranque1.appsisteme;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.arranque1.appsisteme.bbdd.DaoContacts;
 import com.example.arranque1.appsisteme.bbdd.dataBaseHelper;
@@ -33,7 +39,6 @@ public class ModifyContactActivity extends AppCompatActivity {
         String updatedContactPhone = EditPhone.getText().toString();
         Contact editedContact = new Contact(contactID,updatedContactName,updatedContactPhone);
         daocontact.editContact(editedContact);
-        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
@@ -43,7 +48,29 @@ public class ModifyContactActivity extends AppCompatActivity {
         String selectedContactPhone = i.getExtras().getString("phone");
         Contact selectedContact = new Contact(contactID,selectedContactName,selectedContactPhone);
         daocontact.deleteContact(selectedContact);
-        startActivity(new Intent(this, MainActivity.class));
         finish();
+    }
+
+    public void deleteAlert(final View v){
+        final AlertDialog.Builder deleteDialog = new AlertDialog.Builder(this);
+        deleteDialog.setTitle("¿Seguro que deseas borrar?");
+        deleteDialog.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                delete(v);
+            }
+        });
+        deleteDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        deleteDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ModifyContactActivity.this,ListContactActivity.class));
     }
 }
