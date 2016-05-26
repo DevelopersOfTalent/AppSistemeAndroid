@@ -14,16 +14,13 @@ public class WaitingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting);
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        Intent i = getIntent();
-        String role = i.getStringExtra("role");
-        if(role == "Vigilante"){
+        if(Session.getInstance().getuType() == UserType.GUARDIAN){
             //código
             startActivity(new Intent(WaitingActivity.this, VigilanteMainActivity.class));
         }
-        if(role == "Vigilado"){
+        if(Session.getInstance().getuType() == UserType.GUARDED){
             //código
             startActivity(new Intent(WaitingActivity.this, VigiladoMainActivity.class));
         }

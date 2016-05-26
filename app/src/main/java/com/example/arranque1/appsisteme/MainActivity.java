@@ -24,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Session2.getInstance().setuIdVigilado("59c38a4b-2599-4961-9edd-6cae010ccb43");
-        Session2.getInstance().setuIdVigilante("5a8439c6-52a3-4677-98d2-744dc05d31cd");
+        Session.getInstance().setuIdVigilante("59c38a4b-2599-4961-9edd-6cae010ccb43");
+        Session.getInstance().setuIdVigilado("5a8439c6-52a3-4677-98d2-744dc05d31cd");
 
         etName = (EditText) findViewById(R.id.etName);
         etPhone = (EditText) findViewById(R.id.etPhone);
         User ut = new User();
         ut.setId("59c38a4b-2599-4961-9edd-6cae010ccb43");
-        Session2.getInstance().setUserType(UserType.GUARDED);
+        Session.getInstance().setuType(UserType.GUARDED);
 
         OneSignal.enableInAppAlertNotification(true);
         OneSignal.enableNotificationsWhenActive(true);
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                                     OneSignal.postNotification(new JSONObject("{'contents': {'en':'"
                                                     + MENSAJE
                                                     + "'}, 'include_player_ids': ['"
-                                                    + Session2.getInstance().getuIdVigilante()
+                                                    + Session.getInstance().getuIdVigilante()
                                                     + "']}"),
                                             new OneSignal.PostNotificationResponseHandler() {
                                                 @Override

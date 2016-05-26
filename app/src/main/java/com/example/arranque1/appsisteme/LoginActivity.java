@@ -3,6 +3,7 @@ package com.example.arranque1.appsisteme;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
@@ -21,10 +22,13 @@ public class LoginActivity extends AppCompatActivity {
         registration = (TextView)findViewById(R.id.registration);
     }
 
-    public void login(){
+    public void login(View v){
+        /*
         String str_username = username.getText().toString();
         String str_password = password.getText().toString();
         //código
+        startActivity(new Intent(LoginActivity.this, AsociationActivity.class));
+        */
         startActivity(new Intent(LoginActivity.this, AsociationActivity.class));
     }
 }

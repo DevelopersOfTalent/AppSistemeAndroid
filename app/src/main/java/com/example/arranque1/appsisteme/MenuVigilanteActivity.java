@@ -13,7 +13,7 @@ public class MenuVigilanteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_vigilante);
     }
-    public void request1(View v) {startActivity(new Intent(this, RequestActivity.class));}
+    public void request1(View v) {startActivity(new Intent(this, AddActivity.class));}
     public void list(View v) {startActivity(new Intent(this, ContactActivity.class));}
     public void log(View v) {
         Toast.makeText(this, "No hay historial", Toast.LENGTH_SHORT).show();

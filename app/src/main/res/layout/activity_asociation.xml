@@ -28,7 +28,7 @@
         android:text="¿Con quién quieres asociar tu perfil?"
         android:textAlignment="center"
         android:textColor="#7b7a7a"
-        android:textSize="14sp" />
+        android:textSize="20sp" />
 
     <EditText
         android:layout_width="match_parent"

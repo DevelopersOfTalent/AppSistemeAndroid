@@ -29,7 +29,7 @@ public class StateActivity extends AppCompatActivity {
         bBad.setOnClickListener(myhandler);
         bCallme.setOnClickListener(myhandler);
 
-        String n = Session2.getInstance().getUserType().toString();
+        String n = Session.getInstance().getuIdVigilante().toString();
         Toast.makeText(StateActivity.this, n, Toast.LENGTH_SHORT).show();
 
     }
@@ -124,7 +124,7 @@ public class StateActivity extends AppCompatActivity {
                 OneSignal.postNotification(new JSONObject("{'contents': {'en':'"
                                 + MENSAJE
                                 + "'}, 'include_player_ids': ['"
-                                + Session2.getInstance().getuIdVigilante()
+                                + Session.getInstance().getuIdVigilante()
                                 + "']}"),
                         new OneSignal.PostNotificationResponseHandler() {
                             @Override
