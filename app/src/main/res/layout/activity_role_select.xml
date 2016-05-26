@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<LinearLayout tools:context="com.example.arranque1.appsisteme.LoginVigilante"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_height="147dp"
+        android:layout_width="155dp"
+        android:src="@drawable/logo_splash_key"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="#7b7a7a"
+        android:text="¡Bienvenido! Selecciona tu perfil:"
+        android:textAlignment="center"/>
+    <Button
+        android:background="@color/colorButtonVigilante"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:id="@+id/vigilanteButton"
+        android:text="Vigilante**"/>
+
+    <Button
+        android:background="@color/colorButtonVigilado"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:id="@+id/vigiladoButton"
+        android:text="Vigilado**"/>
+</LinearLayout>

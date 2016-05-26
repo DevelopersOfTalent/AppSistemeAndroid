@@ -1,5 +1,6 @@
 package com.example.arranque1.appsisteme;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,14 +20,18 @@ public class AddActivity extends AppCompatActivity {
         etPhone = (EditText)findViewById(R.id.etPhone);
     }
 
-    public void guardar (View v){
+    public void save (View v){
         String name = etName.getText().toString();
         String phone = etPhone.getText().toString();
-        DaoContacts daoLibros = new DaoContacts(this);
+        DaoContacts daoContacts = new DaoContacts(this);
         Contact contact = new Contact(null,name,phone);
-        daoLibros.addContact(contact);
+        daoContacts.addContact(contact);
         Toast.makeText(this, "Se ha dado de alta el contacto.", Toast.LENGTH_SHORT).show();
         Log.d(name, phone);
+        finish();
     }
 
+    public void list(){
+        startActivity(new Intent(AddActivity.this, ListContactActivity.class));
+    }
 }
