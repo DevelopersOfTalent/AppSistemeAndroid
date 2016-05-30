@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res-auto">
+    <Item
+        android:id="@+id/weather"
+        android:showAsAction="always"
+        android:title="weather"/>
+    <Item
+        android:id="@+id/second"
+        android:showAsAction="always"
+        android:title="Contactos"/>
+
+    <Item
+        android:id="@+id/java"
+        android:showAsAction="always"
+        android:title="Historial"/>
+
+    <Item
+        android:id="@+id/android"
+        android:showAsAction="always"
+        android:title="Salir"/>
+</menu>

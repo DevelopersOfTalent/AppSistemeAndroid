@@ -15,7 +15,6 @@
         android:layout_height="30dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/logo_cabecera" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
@@ -24,7 +23,9 @@
         android:text="VIGILADO**"
         android:textAlignment="center"
         android:textColor="#ffffff" />
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +33,6 @@
         android:layout_weight="1"
         android:src="@drawable/icono_bien"
         android:id="@+id/good"/>
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,12 +40,18 @@
         android:layout_weight="1"
         android:src="@drawable/icono_mal"
         android:id="@+id/bad"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:src="@drawable/icono_llamame"
+            android:id="@+id/call_me"/>
+    </LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:src="@drawable/icono_llamame"
-        android:id="@+id/call_me"/>
+
 </LinearLayout>

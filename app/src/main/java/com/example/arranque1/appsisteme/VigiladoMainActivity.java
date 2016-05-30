@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -143,6 +144,7 @@ public class VigiladoMainActivity extends AppCompatActivity {
 
         }
     };
+
 
 
 }

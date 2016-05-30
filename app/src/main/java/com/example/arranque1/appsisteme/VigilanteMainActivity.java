@@ -52,6 +52,4 @@ public class VigilanteMainActivity extends AppCompatActivity {
             }
         }
     };
-
-
 }
