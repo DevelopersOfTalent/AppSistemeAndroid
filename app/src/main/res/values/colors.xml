@@ -1,6 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#53b26e</color>
+    <color name="colorButtonVigilante">#577b61</color>
+    <color name="colorButtonVigilado">#50e27d</color>
+    <color name="backgroundGeneral">#53b26e</color>
+    <color name="colorButtonFine">#4adbba</color>
+    <color name="colorButtonBad">#d0011b</color>
+    <color name="colorButtonAskAndCall">#53b26e</color>
+    <color name="colorGreyTextHint">#a6a5a5</color>
+    <color name="white">#FFFFFF</color>
 </resources>
