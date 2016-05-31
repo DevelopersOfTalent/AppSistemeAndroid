@@ -37,7 +37,7 @@ public class RoleSelectActivity extends AppCompatActivity {
     View.OnClickListener listenerVigilante = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Session.getInstance().setuType(UserType.GUARDIAN);
+           // Session.getInstance().setuType(UserType.GUARDIAN);
             OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
                 @Override
                 public void idsAvailable(String userId, String registrationId) {
@@ -54,7 +54,7 @@ public class RoleSelectActivity extends AppCompatActivity {
     View.OnClickListener listenerVigilado = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Session.getInstance().setuType(UserType.GUARDED);
+           // Session.getInstance().setuType(UserType.GUARDED);
             OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
                 @Override
                 public void idsAvailable(String userId, String registrationId) {

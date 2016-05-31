@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         etPhone = (EditText) findViewById(R.id.etPhone);
         User ut = new User();
         ut.setId("59c38a4b-2599-4961-9edd-6cae010ccb43");
-        Session.getInstance().setuType(UserType.GUARDED);
+        //Session.getInstance().setuType(UserType.GUARDED);
 
         OneSignal.enableInAppAlertNotification(true);
         OneSignal.enableNotificationsWhenActive(true);
@@ -128,15 +128,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void guardian(View v) {
+    /*public void guardian(View v) {
         Intent intent = new Intent(MainActivity.this, MenuVigilanteActivity.class);
         intent.putExtra("parametro", "guardian");
         startActivity(intent);
-    }
+    }*/
 
-    public void guarded(View v) {
+    /*public void guarded(View v) {
         Intent intent = new Intent(MainActivity.this, MenuVigiladoActivity.class);
         intent.putExtra("parametro", "guarded");
         startActivity(intent);
-    }
+    }*/
 }

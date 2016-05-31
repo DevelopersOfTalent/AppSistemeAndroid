@@ -28,6 +28,7 @@ public class AddActivity extends AppCompatActivity {
         daoContacts.addContact(contact);
         Toast.makeText(this, "Se ha dado de alta el contacto.", Toast.LENGTH_SHORT).show();
         Log.d(name, phone);
+        startActivity(new Intent(this, ListContactActivity.class));
         finish();
     }
 

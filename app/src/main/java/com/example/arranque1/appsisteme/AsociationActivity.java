@@ -24,15 +24,15 @@ public class AsociationActivity extends AppCompatActivity {
         //código
         startActivity(new Intent(AsociationActivity.this, WaitingActivity.class));
         */
-        if (Session.getInstance().getuType() == UserType.GUARDIAN){
+        /*if (Session.getInstance().getuType() == UserType.GUARDIAN){
             Session.getInstance().setuIdVigilado("59c38a4b-2599-4961-9edd-6cae010ccb43");
 
         }else if (Session.getInstance().getuType() == UserType.GUARDED){
             Session.getInstance().setuIdVigilante("6e62a817-3d5f-4a7e-b235-bbecb51e23d1");
 
-        }
+        }*/
 
 
-        startActivity(new Intent(AsociationActivity.this, WaitingActivity.class));
+    //    startActivity(new Intent(AsociationActivity.this, WaitingActivity.class));
     }
 }

@@ -13,14 +13,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".AddActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddActivity" />
+        <activity android:name=".SplashScreenActivity" />
         <activity android:name=".ListContactActivity" />
         <activity android:name=".ModifyContactActivity" />
         <activity android:name=".RoleSelectActivity" />
@@ -28,7 +28,8 @@
         <activity android:name=".AsociationActivity" />
         <activity android:name=".WaitingActivity" />
         <activity android:name=".VigilanteMainActivity" />
-        <activity android:name=".VigiladoMainActivity"></activity>
+        <activity android:name=".VigiladoMainActivity" />
+        <activity android:name=".LogActivity"/>
     </application>
 
 </manifest>

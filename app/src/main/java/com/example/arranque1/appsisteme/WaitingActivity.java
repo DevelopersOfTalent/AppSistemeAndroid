@@ -9,7 +9,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class WaitingActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
