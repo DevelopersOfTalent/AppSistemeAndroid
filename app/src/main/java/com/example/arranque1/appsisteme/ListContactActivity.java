@@ -73,7 +73,6 @@ public class ListContactActivity extends AppCompatActivity{
             this.contactList = contactList;
         }
 
-
         @Override
         public int getCount() {
             return contactList.size();
@@ -81,10 +80,6 @@ public class ListContactActivity extends AppCompatActivity{
 
         @Override
         public Object getItem(int position) {
-            return null;
-        }
-
-        public Contact getContact(int position){
             Contact contact = contactList.get(position);
             return contact;
         }
@@ -103,7 +98,7 @@ public class ListContactActivity extends AppCompatActivity{
             textView = (TextView)itemView.findViewById(R.id.contact_name);
             settingsButton = (ImageButton)itemView.findViewById(R.id.settings);
 
-            final Contact selectedContact = getContact(position);
+            final Contact selectedContact = (Contact)getItem(position);
             textView.setText(selectedContact.getName());
             settingsButton.setOnClickListener(new View.OnClickListener(){
                 @Override

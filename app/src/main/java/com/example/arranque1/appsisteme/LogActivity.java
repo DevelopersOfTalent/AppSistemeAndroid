@@ -3,14 +3,26 @@ package com.example.arranque1.appsisteme;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TabHost;
 
-public class LogActivity extends AppCompatActivity {
+import com.example.arranque1.appsisteme.bbdd.DaoLog;
 
+import java.util.List;
+
+public class LogActivity extends AppCompatActivity {
+    ListView lv;
+    DaoLog daoLog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
+        lv = (ListView)findViewById(R.id.logList);
+        daoLog = new DaoLog(this);
+        List<Log> logList = daoLog.getLogList();
+        LogAdapter adapter = new LogAdapter(this, logList);
+        lv.setAdapter(adapter);
 
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
@@ -42,19 +54,19 @@ public class LogActivity extends AppCompatActivity {
             public void onTabChanged(String tabId) {
 
                 if(tabId.equals("PETICIÓN")){
-                    startActivity(new Intent(VigiladoMainActivity.this,VigiladoMainActivity.class));
+                    startActivity(new Intent(LogActivity.this,VigiladoMainActivity.class));
                 }
 
                 if(tabId.equals("TELÉFONOS")){
-                    startActivity(new Intent(VigiladoMainActivity.this,ListContactActivity.class));
+                    startActivity(new Intent(LogActivity.this,ListContactActivity.class));
                 }
 
                 if(tabId.equals("LOG")){
-                    startActivity(new Intent(VigiladoMainActivity.this,LogActivity.class));
+                    startActivity(new Intent(LogActivity.this,LogActivity.class));
                 }
 
                 if(tabId.equals("SALIR")){
-                    startActivity(new Intent(VigiladoMainActivity.this,LoginActivity.class));
+                    startActivity(new Intent(LogActivity.this,LoginActivity.class));
                 }
 
             }
