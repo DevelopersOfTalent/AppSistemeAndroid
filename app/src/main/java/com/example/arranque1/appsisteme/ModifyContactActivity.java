@@ -39,6 +39,7 @@ public class ModifyContactActivity extends AppCompatActivity {
         String updatedContactPhone = EditPhone.getText().toString();
         Contact editedContact = new Contact(contactID,updatedContactName,updatedContactPhone);
         daocontact.editContact(editedContact);
+        startActivity(new Intent(ModifyContactActivity.this, ListContactActivity.class));
         finish();
     }
 
@@ -48,6 +49,7 @@ public class ModifyContactActivity extends AppCompatActivity {
         String selectedContactPhone = i.getExtras().getString("phone");
         Contact selectedContact = new Contact(contactID,selectedContactName,selectedContactPhone);
         daocontact.deleteContact(selectedContact);
+        startActivity(new Intent(ModifyContactActivity.this, ListContactActivity.class));
         finish();
     }
 
@@ -63,6 +65,7 @@ public class ModifyContactActivity extends AppCompatActivity {
         deleteDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(ModifyContactActivity.this, ListContactActivity.class));
                 finish();
             }
         });

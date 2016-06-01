@@ -55,13 +55,16 @@
 
     <TabHost
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_gravity="bottom"
+        android:layout_height="45dp"
         android:id="@+id/tabHost">
-        <TabWidget
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@android:id/tabs">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TabWidget
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/tabs"/>
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,28 +73,28 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tabRequest"
+                    android:id="@+id/tab1"
                     android:orientation="vertical"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:id="@+id/tabContacts"/>
+                    android:id="@+id/tab2"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:id="@+id/tabLog"/>
+                    android:id="@+id/tab3"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:id="@+id/tabExit"/>
+                    android:id="@+id/tab4"/>
 
             </FrameLayout>
-        </TabWidget>
+        </LinearLayout>
     </TabHost>
 </LinearLayout>

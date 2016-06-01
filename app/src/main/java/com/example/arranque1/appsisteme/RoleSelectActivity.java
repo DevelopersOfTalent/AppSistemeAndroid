@@ -33,15 +33,12 @@ public class RoleSelectActivity extends AppCompatActivity {
         vigiladoButton = (Button)findViewById(R.id.vigiladoButton);
         vigilanteButton.setOnClickListener(listenerVigilante);
         vigiladoButton.setOnClickListener(listenerVigilado);
-
-
-
     }
 
     View.OnClickListener listenerVigilante = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-           // Session.getInstance().setuType(UserType.GUARDIAN);
+            Session.getInstance().setuType(UserType.GUARDIAN);
             OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
                 @Override
                 public void idsAvailable(String userId, String registrationId) {
@@ -51,7 +48,7 @@ public class RoleSelectActivity extends AppCompatActivity {
                         Log.d("debug", "registrationId:" + registrationId);
                 }
             });
-            salir1();
+            perfil_vigilante();
             startActivity(new Intent(RoleSelectActivity.this, LoginActivity.class));
         }
     };
@@ -59,7 +56,7 @@ public class RoleSelectActivity extends AppCompatActivity {
     View.OnClickListener listenerVigilado = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-           // Session.getInstance().setuType(UserType.GUARDED);
+            Session.getInstance().setuType(UserType.GUARDED);
             OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
                 @Override
                 public void idsAvailable(String userId, String registrationId) {
@@ -69,18 +66,18 @@ public class RoleSelectActivity extends AppCompatActivity {
                         Log.d("debug", "registrationId:" + registrationId);
                 }
             });
-            salir();
+            perfil_vigilado();
             startActivity(new Intent(RoleSelectActivity.this, LoginActivity.class));
         }
     };
-    public void salir(){
+    public void perfil_vigilado(){
         SharedPreferences sp = this.getSharedPreferences(SplashScreenActivity.ARCHIVO_PREFERENCIAS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("UserType",UserType.GUARDED.toString());
         editor.commit();
         finish();
     }
-    public void salir1(){
+    public void perfil_vigilante(){
         SharedPreferences sp = this.getSharedPreferences(SplashScreenActivity.ARCHIVO_PREFERENCIAS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("UserType",UserType.GUARDIAN.toString());

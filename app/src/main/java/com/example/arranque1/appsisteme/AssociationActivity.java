@@ -1,28 +1,26 @@
 package com.example.arranque1.appsisteme;
 
-import android.content.Intent;
-import android.content.pm.PackageInstaller;
-import android.media.tv.TvInputService;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class AsociationActivity extends AppCompatActivity {
+public class AssociationActivity extends AppCompatActivity {
 
     EditText associatedAccount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_asociation);
+        setContentView(R.layout.activity_association);
 
-        associatedAccount = (EditText)findViewById(R.id.associatedAccount);
+        associatedAccount = (EditText) findViewById(R.id.associatedAccount);
     }
 
-    public void associate(View v){
+    public void associate(View v) {
         /*String account = associatedAccount.getText().toString();
         //código
-        startActivity(new Intent(AsociationActivity.this, WaitingActivity.class));
+        startActivity(new Intent(AssociationActivity.this, WaitingActivity.class));
         */
         /*if (Session.getInstance().getuType() == UserType.GUARDIAN){
             Session.getInstance().setuIdVigilado("59c38a4b-2599-4961-9edd-6cae010ccb43");
@@ -33,6 +31,7 @@ public class AsociationActivity extends AppCompatActivity {
         }
 
 
-        startActivity(new Intent(AsociationActivity.this, WaitingActivity.class));
+        startActivity(new Intent(AssociationActivity.this, WaitingActivity.class));
+    }*/
     }
 }

@@ -27,8 +27,9 @@ public class LoginActivity extends AppCompatActivity {
         String str_username = username.getText().toString();
         String str_password = password.getText().toString();
         //código
-        startActivity(new Intent(LoginActivity.this, AsociationActivity.class));
+        startActivity(new Intent(LoginActivity.this, AssociationActivity.class));
         */
-        startActivity(new Intent(LoginActivity.this, AsociationActivity.class));
+        startActivity(new Intent(LoginActivity.this, AssociationActivity.class));
     }
+
 }

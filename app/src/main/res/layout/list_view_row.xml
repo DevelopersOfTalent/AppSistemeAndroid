@@ -11,10 +11,11 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_weight="1"
+        android:id="@+id/contact_photo"
         android:src="@drawable/logo_sinnombre_mini" />
 
     <TextView
-        android:id="@+id/listText"
+        android:id="@+id/contact_name"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"

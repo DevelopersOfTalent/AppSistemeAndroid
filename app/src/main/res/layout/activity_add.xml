@@ -50,19 +50,24 @@
             android:textSize="24sp" />
     </LinearLayout>
 
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:onClick="save"
         android:text="guardar"
         android:textSize="24sp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:onClick="list"
-        android:text="listar"
+        android:text="cancelar"
         android:textSize="24sp" />
+    </LinearLayout>
 
 </LinearLayout>

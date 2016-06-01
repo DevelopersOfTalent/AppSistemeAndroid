@@ -7,9 +7,9 @@ import java.sql.Timestamp;
  */
 public class Log {
     public String state;
-    public Timestamp date;
+    public String date;
 
-    public Log(String state, Timestamp date) {
+    public Log(String state, String date) {
         this.state = state;
         this.date = date;
     }
@@ -22,11 +22,11 @@ public class Log {
         this.state = state;
     }
 
-    public Timestamp getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

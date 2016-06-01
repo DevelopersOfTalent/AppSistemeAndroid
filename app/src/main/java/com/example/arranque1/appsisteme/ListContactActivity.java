@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -29,49 +30,106 @@ import java.util.List;
 
 public class ListContactActivity extends AppCompatActivity{
     ListView lv;
+    ListAdapter adapter;
     DaoContacts dContacts;
-    ImageButton settingsButton;
-    FloatingActionButton floatingActionButton;
+    ImageButton settingsButton, addContactButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
-        lv = (ListView)findViewById(R.id.contactList);
-        floatingActionButton = (FloatingActionButton)findViewById(R.id.floating_button);
+        lv = (ListView)findViewById(R.id.contactListID);
+        addContactButton = (ImageButton)findViewById(R.id.add_button);
         View inflater = getLayoutInflater().inflate(R.layout.list_view_row, null);
-        settingsButton = (ImageButton)inflater.findViewById(R.id.settings);
         dContacts = new DaoContacts(this);
         List<Contact> listContacts = dContacts.getListaContactos();
-        ArrayAdapter<Contact> aAdapter = new ArrayAdapter<Contact>(this, R.layout.list_view_row, R.id.listText, listContacts);
-        lv.setAdapter(aAdapter);
-        lv.setOnItemClickListener(new ListClickHandler());
-        settingsButton.setOnClickListener(listener);
+        adapter = new ListAdapter(this, listContacts);
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(ListContactActivity.this, "Funciona", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //lv.setOnItemClickListener(new ListClickHandler());
+        addContactButton.setOnClickListener(addListener);
     }
 
-    View.OnClickListener listener = new View.OnClickListener(){
+    View.OnClickListener addListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int position = lv.getSelectedItemPosition();
-            Contact selectedContact = (Contact)lv.getAdapter().getItem(position);
-            Intent intent = new Intent(ListContactActivity.this,ModifyContactActivity.class);
-            Bundle b = new Bundle();
-            b.putInt("id", selectedContact.getId());
-            b.putString("name", selectedContact.getName());
-            b.putString("phone", selectedContact.getPhone());
-            intent.putExtras(b);
-            startActivity(intent);
-            finish();
+            startActivity(new Intent(ListContactActivity.this, AddActivity.class));
         }
     };
 
-    public class ListClickHandler implements OnItemClickListener {
+    public class ListAdapter extends BaseAdapter {
+
+        Context context;
+        List<Contact> contactList;
+        LayoutInflater inflater;
+
+        public ListAdapter(Context context, List<Contact> contactList) {
+            this.context = context;
+            this.contactList = contactList;
+        }
+
+
+        @Override
+        public int getCount() {
+            return contactList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        public Contact getContact(int position){
+            Contact contact = contactList.get(position);
+            return contact;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView textView;
+            ImageButton settingsButton;
+            inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View itemView = inflater.inflate(R.layout.list_view_row, parent, false);
+            textView = (TextView)itemView.findViewById(R.id.contact_name);
+            settingsButton = (ImageButton)itemView.findViewById(R.id.settings);
+
+            final Contact selectedContact = getContact(position);
+            textView.setText(selectedContact.getName());
+            settingsButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(ListContactActivity.this, ModifyContactActivity.class);
+                    Bundle b = new Bundle();
+                    b.putInt("id", selectedContact.getId());
+                    b.putString("name", selectedContact.getName());
+                    b.putString("phone", selectedContact.getPhone());
+                    i.putExtras(b);
+                    startActivity(i);
+                    finish();
+                }
+            });
+            return itemView;
+        }
+
+    }
+
+    /*public class ListClickHandler implements OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Toast.makeText(ListContactActivity.this, "Ha llegado", Toast.LENGTH_SHORT).show();
             Log.d("position", String.valueOf(position));
         }
-    }
+    }*/
 }
 
 
