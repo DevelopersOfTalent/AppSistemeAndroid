@@ -5,8 +5,10 @@ import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.onesignal.OneSignal;
@@ -103,8 +105,28 @@ public class VigiladoMainActivity extends AppCompatActivity {
                         }
                     }
                 });
-        
-        
+        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        host.setup();
+
+        TabHost.TabSpec spec = host.newTabSpec("PETICIÓN");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("PETICIÓN", getDrawable(R.drawable.icono_peticion));
+        host.addTab(spec);
+
+        spec = host.newTabSpec("TELÉFONOS");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("TELÉFONOS", getDrawable(R.drawable.icono_telefonos));
+        host.addTab(spec);
+
+        spec = host.newTabSpec("LOG");
+        spec.setContent(R.id.tab3);
+        spec.setIndicator("LOG", getDrawable(R.drawable.icono_menu));
+        host.addTab(spec);
+
+        spec = host.newTabSpec("SALIR");
+        spec.setContent(R.id.tab4);
+        spec.setIndicator("SALIR", getDrawable(R.drawable.icono_salir));
+        host.addTab(spec);
     }
 
 
@@ -143,6 +165,7 @@ public class VigiladoMainActivity extends AppCompatActivity {
 
         }
     };
+
 
 
 }

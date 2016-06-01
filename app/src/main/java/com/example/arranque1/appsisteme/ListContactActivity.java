@@ -4,6 +4,7 @@ import android.app.LauncherActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,36 +30,40 @@ import java.util.List;
 public class ListContactActivity extends AppCompatActivity{
     ListView lv;
     DaoContacts dContacts;
-    Button settingsButton;
+    ImageButton settingsButton;
+    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
-        View inflateView = getLayoutInflater().inflate(R.layout.list_view_row, (ViewGroup)getWindow().getDecorView().getRootView());
         lv = (ListView)findViewById(R.id.contactList);
-        settingsButton = (Button)findViewById(R.id.settings);
+        floatingActionButton = (FloatingActionButton)findViewById(R.id.floating_button);
+        View inflater = getLayoutInflater().inflate(R.layout.list_view_row, null);
+        settingsButton = (ImageButton)inflater.findViewById(R.id.settings);
         dContacts = new DaoContacts(this);
         List<Contact> listContacts = dContacts.getListaContactos();
         ArrayAdapter<Contact> aAdapter = new ArrayAdapter<Contact>(this, R.layout.list_view_row, R.id.listText, listContacts);
         lv.setAdapter(aAdapter);
         lv.setOnItemClickListener(new ListClickHandler());
-        settingsButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                int position = lv.getSelectedItemPosition();
-                Contact selectedContact = (Contact)lv.getAdapter().getItem(position);
-                Intent intent = new Intent(ListContactActivity.this,ModifyContactActivity.class);
-                Bundle b = new Bundle();
-                b.putInt("id", selectedContact.getId());
-                b.putString("name", selectedContact.getName());
-                b.putString("phone", selectedContact.getPhone());
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-            }
-        });
+        settingsButton.setOnClickListener(listener);
     }
+
+    View.OnClickListener listener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            int position = lv.getSelectedItemPosition();
+            Contact selectedContact = (Contact)lv.getAdapter().getItem(position);
+            Intent intent = new Intent(ListContactActivity.this,ModifyContactActivity.class);
+            Bundle b = new Bundle();
+            b.putInt("id", selectedContact.getId());
+            b.putString("name", selectedContact.getName());
+            b.putString("phone", selectedContact.getPhone());
+            intent.putExtras(b);
+            startActivity(intent);
+            finish();
+        }
+    };
 
     public class ListClickHandler implements OnItemClickListener {
         @Override

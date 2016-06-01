@@ -27,13 +27,19 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".AsociationActivity" />
         <activity android:name=".WaitingActivity" />
-        <activity android:name=".VigilanteMainActivity" />
-        <activity android:name=".VigiladoMainActivity" />
         <activity android:name=".LogActivity"/>
+        <activity android:name=".VigilanteMainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">>
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+        </activity>
+        <activity android:name=".VigiladoMainActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
+                <meta-data
+                    android:name="android.support.UI_OPTIONS"
+                    android:value="splitActionBarWhenNarrow" />
+        </activity>
     </application>
-
-
-
-
 
 </manifest>

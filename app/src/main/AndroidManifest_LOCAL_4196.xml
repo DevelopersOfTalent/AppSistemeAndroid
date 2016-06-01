@@ -32,8 +32,4 @@
         <activity android:name=".LogActivity"/>
     </application>
 
-
-
-
-
 </manifest>

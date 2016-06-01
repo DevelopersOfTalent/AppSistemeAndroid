@@ -1,13 +1,16 @@
 package com.example.arranque1.appsisteme;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.onesignal.OneSignal;
@@ -20,6 +23,7 @@ public class RoleSelectActivity extends AppCompatActivity {
 
     Button vigilanteButton, vigiladoButton;
     private static String MENSAJE = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,7 @@ public class RoleSelectActivity extends AppCompatActivity {
                         Log.d("debug", "registrationId:" + registrationId);
                 }
             });
+            salir1();
             startActivity(new Intent(RoleSelectActivity.this, LoginActivity.class));
         }
     };
@@ -64,7 +69,22 @@ public class RoleSelectActivity extends AppCompatActivity {
                         Log.d("debug", "registrationId:" + registrationId);
                 }
             });
+            salir();
             startActivity(new Intent(RoleSelectActivity.this, LoginActivity.class));
         }
     };
+    public void salir(){
+        SharedPreferences sp = this.getSharedPreferences(SplashScreenActivity.ARCHIVO_PREFERENCIAS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("UserType",UserType.GUARDED.toString());
+        editor.commit();
+        finish();
+    }
+    public void salir1(){
+        SharedPreferences sp = this.getSharedPreferences(SplashScreenActivity.ARCHIVO_PREFERENCIAS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("UserType",UserType.GUARDIAN.toString());
+        editor.commit();
+        finish();
+    }
 }
