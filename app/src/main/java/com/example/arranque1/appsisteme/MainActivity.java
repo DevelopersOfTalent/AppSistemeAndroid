@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(View v) {
-        startActivity(new Intent(this, ContactActivity.class));
+        String ex = "";
     }
 
     public void notificar(View v) {

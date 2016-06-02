@@ -31,7 +31,7 @@ public class AddActivity extends AppCompatActivity {
         finish();
     }
 
-    public void list(){
+    public void list(View v){
         startActivity(new Intent(AddActivity.this, ListContactActivity.class));
         finish();
     }

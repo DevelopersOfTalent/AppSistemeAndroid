@@ -17,7 +17,7 @@
         android:layout_height="190dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="15dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/logo_splash_key" />
 
     <TextView

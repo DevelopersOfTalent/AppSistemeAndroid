@@ -134,21 +134,32 @@ public class VigiladoMainActivity extends AppCompatActivity {
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
+                Class currentClass = null;
+                UserType userType = Session.getInstance().getuType();
+                if (userType == UserType.GUARDED){
+                    currentClass = VigiladoMainActivity.class;
+                }else if(userType == UserType.GUARDIAN){
+                    currentClass = VigilanteMainActivity.class;
+                }
 
                 if(tabId.equals("PETICIÓN")){
-                    startActivity(new Intent(VigiladoMainActivity.this,VigiladoMainActivity.class));
+                    startActivity(new Intent(VigiladoMainActivity.this,currentClass));
+                    finish();
                 }
 
                 if(tabId.equals("TELÉFONOS")){
                     startActivity(new Intent(VigiladoMainActivity.this,ListContactActivity.class));
+                    finish();
                 }
 
                 if(tabId.equals("LOG")){
                     startActivity(new Intent(VigiladoMainActivity.this,LogActivity.class));
+                    finish();
                 }
 
                 if(tabId.equals("SALIR")){
                     startActivity(new Intent(VigiladoMainActivity.this,LoginActivity.class));
+                    finish();
                 }
 
             }

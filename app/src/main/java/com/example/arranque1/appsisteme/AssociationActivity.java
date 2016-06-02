@@ -1,5 +1,6 @@
 package com.example.arranque1.appsisteme;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,9 +30,9 @@ public class AssociationActivity extends AppCompatActivity {
             Session.getInstance().setuIdVigilante("59c38a4b-2599-4961-9edd-6cae010ccb43");
 
         }
-
+        */
 
         startActivity(new Intent(AssociationActivity.this, WaitingActivity.class));
-    }*/
     }
+
 }

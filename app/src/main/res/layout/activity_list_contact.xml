@@ -31,14 +31,57 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/colorButtonVigilado"
         android:gravity="center_vertical"
-        android:text="VIGILADO"
+        android:id="@+id/headerText"
         android:textAlignment="center"
         android:textColor="#ffffff" />
 
     <ListView
         android:id="@+id/contactListID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="430dp"/>
+
+    <TabHost
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:focusable="true"
+        android:id="@+id/tabHost">
+        <TabWidget
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@android:id/tabs"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@android:id/tabcontent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tab1"
+                android:orientation="vertical"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/tab2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/tab3"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/tab4"/>
+        </FrameLayout>
+        </LinearLayout>
+    </TabHost>
 </LinearLayout>

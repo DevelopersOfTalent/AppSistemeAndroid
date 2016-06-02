@@ -36,7 +36,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Session.getInstance().setuIdVigilante("59c38a4b-2599-4961-9edd-6cae010ccb43");
-        Session.getInstance().setuIdVigilado("5a8439c6-52a3-4677-98d2-744dc05d31cd");
+        Session.getInstance().setuIdVigilado("a85c78f3-b15a-482a-8637-b636a1264605");
     }
 
     public void onStart(){
@@ -45,7 +45,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 this.getSharedPreferences(ARCHIVO_PREFERENCIAS,
                         Context.MODE_PRIVATE);
         String uT = sp.getString("UserType", "");
-        Toast.makeText(this,uT,Toast.LENGTH_LONG).show();
         if (uT.equals("GUARDED")){
             startActivity(new Intent(SplashScreenActivity.this, VigiladoMainActivity.class));
             finish();
