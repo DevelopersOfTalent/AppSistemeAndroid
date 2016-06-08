@@ -11,63 +11,86 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.arranque1.appsisteme.AddActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/add_contactImage"
+        android:src="@drawable/default_contact_image"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
             android:text="Nombre:"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/etName"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:layout_gravity="end"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Teléfono:"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/etPhone"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-
-            android:inputType="number"
+            android:inputType="phone"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:onClick="save"
-        android:text="guardar"
-        android:textSize="24sp" />
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorButtonAskAndCall"
+            android:textColor="@color/white"
+            android:onClick="save"
+            android:text="guardar"
+            android:textSize="24sp" />
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:onClick="list"
-        android:text="cancelar"
-        android:textSize="24sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="list"
+            android:background="@color/colorButtonVigilante"
+            android:textColor="@color/white"
+            android:text="cancelar"
+            android:textSize="24sp" />
+
     </LinearLayout>
 
 </LinearLayout>

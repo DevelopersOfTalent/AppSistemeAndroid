@@ -43,6 +43,7 @@ public class RoleSelectActivity extends AppCompatActivity {
                 @Override
                 public void idsAvailable(String userId, String registrationId) {
                     Toast.makeText(RoleSelectActivity.this, userId, Toast.LENGTH_SHORT).show();
+                    Log.d("debug", "userID:" + userId);
                     Session.getInstance().setuIdVigilante(userId);
                     if (registrationId != null)
                         Log.d("debug", "registrationId:" + registrationId);
@@ -61,6 +62,7 @@ public class RoleSelectActivity extends AppCompatActivity {
                 @Override
                 public void idsAvailable(String userId, String registrationId) {
                     Toast.makeText(RoleSelectActivity.this, userId, Toast.LENGTH_SHORT).show();
+                    Log.d("debug", "userID:" + userId);
                     Session.getInstance().setuIdVigilado(userId);
                     if (registrationId != null)
                         Log.d("debug", "registrationId:" + registrationId);

@@ -7,8 +7,7 @@
     <TextView
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:textSize="20sp"
-        android:text="Primer texto"
+        android:textSize="12sp"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="25dp"
         android:id="@+id/state"/>
@@ -16,8 +15,7 @@
     <TextView
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:textSize="20sp"
-        android:text="Segundo Texto"
+        android:textSize="12sp"
         android:textColor="@color/colorGreyTextHint"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"

@@ -1,98 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.arranque1.appsisteme.vigilante_HOME">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0.40"
         android:src="@drawable/logo_cabecera" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.30"
         android:background="@color/colorButtonVigilado"
         android:gravity="center_vertical"
-        android:text="VIGILADO**"
+        android:text="VIGILADO"
         android:textAlignment="center"
         android:textColor="#ffffff" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="200dp">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:src="@drawable/icono_bien"
-        android:id="@+id/good"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:src="@drawable/icono_mal"
-        android:id="@+id/bad"/>
-</LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
         <ImageView
+            android:id="@+id/good"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:src="@drawable/icono_llamame"
-            android:id="@+id/call_me"/>
+            android:src="@drawable/icono_bien" />
+
+        <ImageView
+            android:id="@+id/bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:src="@drawable/icono_mal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <ImageView
+            android:id="@+id/call_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icono_llamame" />
     </LinearLayout>
 
     <TabHost
+        android:id="@+id/tabHost"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:id="@+id/tabHost">
+        android:layout_height="0dp"
+        android:layout_weight="0.60">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TabWidget
+                android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@android:id/tabs"/>
+                android:layout_height="wrap_content" />
+
             <FrameLayout
+                android:id="@android:id/tabcontent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@android:id/tabcontent">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/tab1"
-                    android:orientation="vertical"/>
-
-                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/tab2"/>
+                    android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/tab3"/>
+                    android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/tab3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/tab4"/>
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/tab4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
 
             </FrameLayout>
         </LinearLayout>

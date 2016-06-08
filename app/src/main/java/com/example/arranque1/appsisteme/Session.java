@@ -6,7 +6,6 @@ package com.example.arranque1.appsisteme;
 public class Session {
     private static Session sharedInstance = null;
 
-
     public static Session getInstance() {
         if (sharedInstance == null) {
             sharedInstance = new Session();

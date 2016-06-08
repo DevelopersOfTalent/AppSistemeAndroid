@@ -11,9 +11,19 @@
     android:background="@color/white"
     tools:context="com.example.arranque1.appsisteme.ModifyContactActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:id="@+id/edit_contactPhoto" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -30,9 +40,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="120sp"
@@ -47,15 +58,28 @@
             />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Guardar"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:background="@color/colorButtonAskAndCall"
+        android:textSize="24sp"
         android:onClick="edit"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Borrar"
+        android:textColor="@color/white"
+        android:background="@color/colorButtonAskAndCall"
+        android:textSize="24sp"
+        android:text="Eliminar"
         android:onClick="deleteAlert"/>
+    </LinearLayout>
 </LinearLayout>

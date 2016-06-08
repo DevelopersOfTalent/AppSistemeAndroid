@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -31,6 +33,7 @@ import android.widget.TwoLineListItem;
 
 import com.example.arranque1.appsisteme.bbdd.DaoContacts;
 
+import java.io.File;
 import java.util.List;
 
 public class ListContactActivity extends AppCompatActivity {
@@ -48,31 +51,23 @@ public class ListContactActivity extends AppCompatActivity {
 
         headerText = (TextView) findViewById(R.id.headerText);
         if (Session.getInstance().getuType() == UserType.GUARDIAN) {
-            String perfil = "Vigilante";
+            String perfil = "VIGILANTE";
             headerText.setText(perfil);
             headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilante));
         } else if (Session.getInstance().getuType() == UserType.GUARDED) {
-            String perfil = "Vigilado";
+            String perfil = "VIGILADO";
             headerText.setText(perfil);
             headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilado));
         }
 
         addContactButton = (ImageButton) findViewById(R.id.add_button);
-        View inflater = getLayoutInflater().inflate(R.layout.list_view_row, null);
         dContacts = new DaoContacts(this);
         List<Contact> listContacts = dContacts.getListaContactos();
         adapter = new ListAdapter(this, listContacts);
         lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ListContactActivity.this, "Funciona", Toast.LENGTH_SHORT).show();
-            }
-        });
-        //lv.setOnItemClickListener(new ListClickHandler());
         addContactButton.setOnClickListener(addListener);
 
-        TabHost host = (TabHost) findViewById(R.id.tabHost);
+        final TabHost host = (TabHost) findViewById(R.id.tabHost);
         host.setup();
 
         TabHost.TabSpec spec = host.newTabSpec("PETICIÓN");
@@ -95,40 +90,47 @@ public class ListContactActivity extends AppCompatActivity {
         spec.setIndicator("", getDrawable(R.drawable.icono_salir));
         host.addTab(spec);
 
-        host.setCurrentTab(0);
+        host.setCurrentTab(1);
 
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                Class currentClass = null;
-                UserType userType = Session.getInstance().getuType();
-                if (userType == UserType.GUARDED) {
-                    currentClass = VigiladoMainActivity.class;
-                } else if (userType == UserType.GUARDIAN) {
-                    currentClass = VigilanteMainActivity.class;
-                }
 
                 if (tabId.equals("PETICIÓN")) {
-                    startActivity(new Intent(ListContactActivity.this, currentClass));
+                    if(Session.getInstance().getuType()==UserType.GUARDED){
+                        startActivity(new Intent(ListContactActivity.this, VigiladoMainActivity.class));
+                    }else if(Session.getInstance().getuType()==UserType.GUARDIAN){
+                        startActivity(new Intent(ListContactActivity.this, VigilanteMainActivity.class));
+                    }
                     finish();
                 }
 
-                if (tabId.equals("TELÉFONOS")) {
-                    startActivity(new Intent(ListContactActivity.this, ListContactActivity.class));
+                if(tabId.equals("LOG")){
+                    startActivity(new Intent(ListContactActivity.this,LogActivity.class));
                     finish();
                 }
 
-                if (tabId.equals("LOG")) {
-                    startActivity(new Intent(ListContactActivity.this, LogActivity.class));
-                    finish();
-                }
-
-                if (tabId.equals("SALIR")) {
-                    startActivity(new Intent(ListContactActivity.this, LoginActivity.class));
+                if(tabId.equals("SALIR")){
+                    startActivity(new Intent(ListContactActivity.this,LoginActivity.class));
                     finish();
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (Session.getInstance().getuType() == UserType.GUARDIAN) {
+            String perfil = "VIGILANTE";
+            headerText.setText(perfil);
+            headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilante));
+        } else if (Session.getInstance().getuType() == UserType.GUARDED) {
+            String perfil = "VIGILADO";
+            headerText.setText(perfil);
+            headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilado));
+        }
     }
 
     View.OnClickListener addListener = new View.OnClickListener() {
@@ -169,14 +171,21 @@ public class ListContactActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             TextView textView;
             ImageButton settingsButton;
+            ImageView contactImage;
+
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View itemView = inflater.inflate(R.layout.list_view_row, parent, false);
             textView = (TextView) itemView.findViewById(R.id.contact_name);
-
-            settingsButton = (ImageButton) itemView.findViewById(R.id.settings);
+            settingsButton = (ImageButton)itemView.findViewById(R.id.settings);
+            contactImage = (ImageView)itemView.findViewById(R.id.contact_photo);
 
             final Contact selectedContact = (Contact) getItem(position);
             textView.setText(selectedContact.getName());
+
+            Bitmap contactPhoto = BitmapFactory.decodeFile(selectedContact.getImageSource());
+
+            contactImage.setImageBitmap(contactPhoto);
+
             settingsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -185,6 +194,7 @@ public class ListContactActivity extends AppCompatActivity {
                     b.putInt("id", selectedContact.getId());
                     b.putString("name", selectedContact.getName());
                     b.putString("phone", selectedContact.getPhone());
+                    b.putString("imageSource", selectedContact.getImageSource());
                     i.putExtras(b);
                     startActivity(i);
                     finish();
@@ -213,16 +223,7 @@ public class ListContactActivity extends AppCompatActivity {
             });
             return itemView;
         }
-
     }
-
-    /*public class ListClickHandler implements OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(ListContactActivity.this, "Ha llegado", Toast.LENGTH_SHORT).show();
-            Log.d("position", String.valueOf(position));
-        }
-    }*/
 }
 
 

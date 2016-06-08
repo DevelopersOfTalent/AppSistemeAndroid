@@ -9,32 +9,39 @@
     tools:context="com.example.arranque1.appsisteme.vigilante_HOME">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.75"
+        android:layout_gravity="center"
         android:src="@drawable/logo_cabecera" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
         android:background="@color/colorButtonVigilante"
         android:gravity="center_vertical"
         android:text="VIGILANTE"
         android:textAlignment="center"
         android:textColor="#ffffff" />
 
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="4">
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginLeft="45dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
         android:id="@+id/stateRequest"
         android:src="@drawable/button_solicitar_estado"/>
-
+    </LinearLayout>
     <TabHost
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.60"
         android:id="@+id/tabHost">
         <LinearLayout
             android:layout_width="match_parent"

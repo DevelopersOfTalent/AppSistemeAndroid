@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.arranque1.appsisteme.bbdd.DaoLog;
 import com.onesignal.OneSignal;
 
 import org.json.JSONArray;
@@ -32,11 +33,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        OneSignal.startInit(this).init();
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        Session.getInstance().setuIdVigilante("59c38a4b-2599-4961-9edd-6cae010ccb43");
-        Session.getInstance().setuIdVigilado("a85c78f3-b15a-482a-8637-b636a1264605");
+        Session.getInstance().setuIdVigilado("cf23c44c-3741-4ba5-93b0-073c2bf779c5");
+        Session.getInstance().setuIdVigilante("4693a2dd-16c0-47cc-80b8-847dacdebcd1");
     }
 
     public void onStart(){
@@ -75,6 +76,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         if (Session.getInstance().getuType() == UserType.GUARDIAN){
+                            startActivity(new Intent(SplashScreenActivity.this, VigilanteMainActivity.class));
                         }
                         else if (Session.getInstance().getuType() == UserType.GUARDED){
                             startActivity(new Intent(SplashScreenActivity.this, VigiladoMainActivity.class));

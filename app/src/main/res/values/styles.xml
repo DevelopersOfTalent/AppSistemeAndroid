@@ -1,12 +1,22 @@
 <?xml version="1.0"?>
-    <resources>
+<resources>
     <!-- Base application theme. -->
-    -<style parent="Theme.AppCompat.Light.NoActionBar" name="AppTheme">
-    <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
+    -
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
     </style>
-    -<style parent="AppTheme" name="FullscreenTheme">
-    <item name="android:windowActionBarOverlay">false</item>
-    <item name="android:windowBackground">@null</item>
-    </style></resources>
+    -
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="LightModified" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@android:color/background_light</item>
+        <item name="android:colorBackground">@color/bright_foreground_material_dark</item>
+    </style>
+</resources>
 

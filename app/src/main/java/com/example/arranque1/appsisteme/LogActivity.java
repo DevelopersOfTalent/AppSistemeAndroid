@@ -5,10 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arranque1.appsisteme.bbdd.DaoLog;
 
@@ -24,11 +29,12 @@ public class LogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log);
         lv = (ListView)findViewById(R.id.logList);
         headerText = (TextView)findViewById(R.id.headerText);
-        if(Session.getInstance().getuType()==UserType.GUARDIAN){
-            headerText.setText("Vigilante");
+        UserType userType = Session.getInstance().getuType();
+        if(userType==UserType.GUARDIAN){
+            headerText.setText("VIGILANTE");
             headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilante));
         }else if(Session.getInstance().getuType()==UserType.GUARDED){
-            headerText.setText("Vigilado");
+            headerText.setText("VIGILADO");
             headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilado));
         }
         daoLog = new DaoLog(this);
@@ -36,7 +42,7 @@ public class LogActivity extends AppCompatActivity {
         LogAdapter adapter = new LogAdapter(this, logList);
         lv.setAdapter(adapter);
 
-        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        final TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
 
         TabHost.TabSpec spec = host.newTabSpec("PETICIÓN");
@@ -59,21 +65,18 @@ public class LogActivity extends AppCompatActivity {
         spec.setIndicator("", getDrawable(R.drawable.icono_salir));
         host.addTab(spec);
 
-        host.setCurrentTab(0);
+        host.setCurrentTab(2);
 
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                Class currentClass = null;
-                UserType userType = Session.getInstance().getuType();
-                if (userType == UserType.GUARDED){
-                    currentClass = VigiladoMainActivity.class;
-                }else if(userType == UserType.GUARDIAN){
-                    currentClass = VigilanteMainActivity.class;
-                }
 
-                if(tabId.equals("PETICIÓN")){
-                    startActivity(new Intent(LogActivity.this,currentClass));
+                if (tabId.equals("PETICIÓN")) {
+                    if(Session.getInstance().getuType()==UserType.GUARDED){
+                        startActivity(new Intent(LogActivity.this, VigiladoMainActivity.class));
+                    }else if(Session.getInstance().getuType()==UserType.GUARDIAN){
+                        startActivity(new Intent(LogActivity.this, VigilanteMainActivity.class));
+                    }
                     finish();
                 }
 
@@ -82,10 +85,6 @@ public class LogActivity extends AppCompatActivity {
                     finish();
                 }
 
-                if(tabId.equals("LOG")){
-                    startActivity(new Intent(LogActivity.this,LogActivity.class));
-                    finish();
-                }
 
                 if(tabId.equals("SALIR")){
                     startActivity(new Intent(LogActivity.this,LoginActivity.class));
@@ -94,4 +93,22 @@ public class LogActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (Session.getInstance().getuType() == UserType.GUARDIAN) {
+            String perfil = "VIGILANTE";
+            headerText.setText(perfil);
+            headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilante));
+        } else if (Session.getInstance().getuType() == UserType.GUARDED) {
+            String perfil = "VIGILADO";
+            headerText.setText(perfil);
+            headerText.setBackgroundColor(getResources().getColor(R.color.colorButtonVigilado));
+        }
+    }
+
 }
+
+

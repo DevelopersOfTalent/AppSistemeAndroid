@@ -3,21 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="5dp"
     tools:context="com.example.arranque1.appsisteme.LogActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:src="@drawable/logo_cabecera" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
         android:gravity="center_vertical"
         android:id="@+id/headerText"
         android:textAlignment="center"
@@ -25,25 +24,24 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="0dp"
+        android:layout_weight="10"
         android:id="@+id/logList"/>
 
     <TabHost
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:focusable="true"
-        android:layout_gravity="end"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="1.5"
         android:id="@+id/tabHost">
         <TabWidget
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@android:id/tabs"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="bottom"
                 android:id="@android:id/tabcontent">
 
                 <LinearLayout
@@ -70,6 +68,5 @@
                     android:orientation="vertical"
                     android:id="@+id/tab4"/>
             </FrameLayout>
-            </LinearLayout>
     </TabHost>
 </LinearLayout>

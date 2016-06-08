@@ -12,14 +12,20 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.example.arranque1.appsisteme.bbdd.DaoLog;
 import com.onesignal.OneSignal;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class VigiladoMainActivity extends AppCompatActivity {
     ImageView good, bad, call_me;
+    DaoLog daoLog = new DaoLog(this);
     private static String MENSAJE = "";
 
     @Override
@@ -27,9 +33,9 @@ public class VigiladoMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vigilado_main);
 
-        good = (ImageView)findViewById(R.id.good);
-        bad = (ImageView)findViewById(R.id.bad);
-        call_me = (ImageView)findViewById(R.id.call_me);
+        good = (ImageView) findViewById(R.id.good);
+        bad = (ImageView) findViewById(R.id.bad);
+        call_me = (ImageView) findViewById(R.id.call_me);
 
         good.setOnClickListener(myhandler);
         bad.setOnClickListener(myhandler);
@@ -106,7 +112,8 @@ public class VigiladoMainActivity extends AppCompatActivity {
                         }
                     }
                 });
-        TabHost host = (TabHost)findViewById(R.id.tabHost);
+
+        final TabHost host = (TabHost) findViewById(R.id.tabHost);
         host.setup();
 
         TabHost.TabSpec spec = host.newTabSpec("PETICIÓN");
@@ -134,39 +141,23 @@ public class VigiladoMainActivity extends AppCompatActivity {
         host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                Class currentClass = null;
-                UserType userType = Session.getInstance().getuType();
-                if (userType == UserType.GUARDED){
-                    currentClass = VigiladoMainActivity.class;
-                }else if(userType == UserType.GUARDIAN){
-                    currentClass = VigilanteMainActivity.class;
+
+                if (tabId.equals("TELÉFONOS")) {
+                    startActivity(new Intent(VigiladoMainActivity.this, ListContactActivity.class));
                 }
 
-                if(tabId.equals("PETICIÓN")){
-                    startActivity(new Intent(VigiladoMainActivity.this,currentClass));
-                    finish();
+                if (tabId.equals("LOG")) {
+                    startActivity(new Intent(VigiladoMainActivity.this, LogActivity.class));
                 }
 
-                if(tabId.equals("TELÉFONOS")){
-                    startActivity(new Intent(VigiladoMainActivity.this,ListContactActivity.class));
-                    finish();
+                if (tabId.equals("SALIR")) {
+                    startActivity(new Intent(VigiladoMainActivity.this, LoginActivity.class));
                 }
-
-                if(tabId.equals("LOG")){
-                    startActivity(new Intent(VigiladoMainActivity.this,LogActivity.class));
-                    finish();
-                }
-
-                if(tabId.equals("SALIR")){
-                    startActivity(new Intent(VigiladoMainActivity.this,LoginActivity.class));
-                    finish();
-                }
-
             }
         });
     }
 
-
+    //Dentro de este onClickListener irá el SendTag o el JSONObject con el string de fecha (dateTime) y el de estado (MENSAJE).
     View.OnClickListener myhandler = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
@@ -180,29 +171,36 @@ public class VigiladoMainActivity extends AppCompatActivity {
                     MENSAJE = "LLÁMAME";
                     break;
             }
+
+            Calendar date = GregorianCalendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, hh:mm");
+            String dateTime = String.valueOf(sdf.format(date.getTime()));
+            com.example.arranque1.appsisteme.Log log = new com.example.arranque1.appsisteme.Log(MENSAJE, dateTime);
+            daoLog.addLog(log);
+
             try {
                 OneSignal.postNotification(new JSONObject("{'contents': {'en':'"
-                                + MENSAJE
-                                + "'}, 'include_player_ids': ['"
-                                + Session.getInstance().getuIdVigilante()
-                                + "']}"),
+                        + MENSAJE
+                        + "'}, 'include_player_ids': ['"+
+                        Session.getInstance().getuIdVigilante()
+                        +"']}"),
                         new OneSignal.PostNotificationResponseHandler() {
                             @Override
                             public void onSuccess(JSONObject response) {
                                 Log.d("Result", "Exito");
                             }
+
                             @Override
                             public void onFailure(JSONObject response) {
-                                Log.d("Result", "Fracaso");
+                                Log.d("Result:", response.toString());
                             }
-                        });
+                });
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
         }
     };
-
 
 
 }

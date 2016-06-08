@@ -36,13 +36,14 @@ public class DaoLog {
     public List<Log> getLogList(){
         List<Log> logList = new ArrayList<>();
         SQLiteDatabase sql = logDBHelper.getReadableDatabase();
-        String[] columns = {ID,STATE,DATE};
+        String[] columns = {STATE,DATE};
         Cursor cursor = sql.query(TABLE_NAME, columns, null, null, null, null, null);
         while(cursor.moveToNext()){
             Log log = new Log(cursor.getString(0),
                     cursor.getString(1));
             logList.add(log);
         }
+        sql.close();
         return logList;
     }
 }

@@ -4,6 +4,10 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
+    aaptOptions{
+        cruncherEnabled = false
+    }
+
     defaultConfig {
         applicationId "com.example.arranque1.appsisteme"
         minSdkVersion 14
@@ -14,7 +18,7 @@ android {
 
         //TODO: Please update the Google Project Number and OneSignal Id below to yours
         manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
-                                onesignal_app_id               : "bdf1bce9-c220-4631-8784-045722fa5861",
+                                onesignal_app_id               : "f790b79c-28b5-4c9f-81e0-a2fc107b3649",
                                 onesignal_google_project_number: "12535130588"]
     }
 
