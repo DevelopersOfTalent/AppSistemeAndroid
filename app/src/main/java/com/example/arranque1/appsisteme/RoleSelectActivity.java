@@ -50,7 +50,7 @@ public class RoleSelectActivity extends AppCompatActivity {
                 }
             });
             perfil_vigilante();
-            startActivity(new Intent(RoleSelectActivity.this, LoginActivity.class));
+            startActivity(new Intent(RoleSelectActivity.this, VigilanteMainActivity.class));
         }
     };
 
@@ -69,7 +69,7 @@ public class RoleSelectActivity extends AppCompatActivity {
                 }
             });
             perfil_vigilado();
-            startActivity(new Intent(RoleSelectActivity.this, LoginActivity.class));
+            startActivity(new Intent(RoleSelectActivity.this, VigiladoMainActivity.class));
         }
     };
     public void perfil_vigilado(){

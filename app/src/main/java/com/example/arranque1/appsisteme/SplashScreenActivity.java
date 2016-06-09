@@ -36,7 +36,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         OneSignal.startInit(this).init();
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        Session.getInstance().setuIdVigilado("cf23c44c-3741-4ba5-93b0-073c2bf779c5");
+        Session.getInstance().setuIdVigilado("3b7954be-f718-48a6-8e7f-83be27fba4bf");
         Session.getInstance().setuIdVigilante("4693a2dd-16c0-47cc-80b8-847dacdebcd1");
     }
 

@@ -40,6 +40,7 @@ public class VigilanteMainActivity extends AppCompatActivity {
         .setNotificationOpenedHandler(new OneSignal.NotificationOpenedHandler() {
             @Override
             public void notificationOpened(String message, JSONObject additionalData, boolean isActive) {
+                    Toast.makeText(VigilanteMainActivity.this, additionalData.toString(), Toast.LENGTH_SHORT).show();
                 //GetTag o JSONObject que recibirá estado y fecha al abrir la notificación del vigilado.
             }
         });

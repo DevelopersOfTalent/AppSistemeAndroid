@@ -79,7 +79,7 @@ public class VigiladoMainActivity extends AppCompatActivity {
 
                                                 @Override
                                                 public void onFailure(JSONObject response) {
-                                                    Log.d("Result", "Fracaso");
+                                                    Log.d("Result", response.toString());
                                                 }
                                             });
                                 } catch (JSONException e) {
@@ -183,7 +183,7 @@ public class VigiladoMainActivity extends AppCompatActivity {
                         + MENSAJE
                         + "'}, 'include_player_ids': ['"+
                         Session.getInstance().getuIdVigilante()
-                        +"']}"),
+                        +"'],'data':{'state':'"+MENSAJE+"','date':'"+dateTime+"'}}"),
                         new OneSignal.PostNotificationResponseHandler() {
                             @Override
                             public void onSuccess(JSONObject response) {
@@ -192,7 +192,7 @@ public class VigiladoMainActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(JSONObject response) {
-                                Log.d("Result:", response.toString());
+                                Log.d("Result", response.toString());
                             }
                 });
 
