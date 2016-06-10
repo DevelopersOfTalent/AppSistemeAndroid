@@ -33,7 +33,21 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        OneSignal.startInit(this).init();
+        OneSignal.startInit(this).setAutoPromptLocation(true)
+                .setNotificationOpenedHandler(new OneSignal.NotificationOpenedHandler() {
+                    @Override
+                    public void notificationOpened(String message, JSONObject additionalData, boolean isActive) {
+                        try {
+                            DaoLog daoLog = new DaoLog(SplashScreenActivity.this);
+                            String state = additionalData.getString("state");
+                            String date = additionalData.getString("date");
+                            com.example.arranque1.appsisteme.Log receivedLog = new com.example.arranque1.appsisteme.Log(state,date);
+                            daoLog.addLog(receivedLog);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).init();
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Session.getInstance().setuIdVigilado("3b7954be-f718-48a6-8e7f-83be27fba4bf");

@@ -109,4 +109,5 @@ public class AddActivity extends AppCompatActivity {
         startActivity(new Intent(AddActivity.this, ListContactActivity.class));
         finish();
     }
+
 }
