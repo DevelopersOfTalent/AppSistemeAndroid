@@ -4,8 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.example.arranque1.appsisteme.Log;
+import com.example.arranque1.appsisteme.LogActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,10 @@ public class DaoLog {
                     cursor.getString(1));
             logList.add(log);
         }
-        sql.close();
         return logList;
+    }
+
+    public void deleteLog(Context context){
+        context.deleteDatabase("Log");
     }
 }

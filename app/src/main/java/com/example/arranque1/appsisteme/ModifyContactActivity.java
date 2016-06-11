@@ -120,8 +120,7 @@ public class ModifyContactActivity extends AppCompatActivity {
         deleteDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(ModifyContactActivity.this, ListContactActivity.class));
-                finish();
+                deleteDialog.setCancelable(true);
             }
         });
         deleteDialog.show();

@@ -1,39 +1,26 @@
 package com.example.arranque1.appsisteme;
 
-import android.app.LauncherActivity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.TwoLineListItem;
 
 import com.example.arranque1.appsisteme.bbdd.DaoContacts;
 
-import java.io.File;
 import java.util.List;
 
 public class ListContactActivity extends AppCompatActivity {
@@ -174,7 +161,7 @@ public class ListContactActivity extends AppCompatActivity {
             ImageView contactImage;
 
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View itemView = inflater.inflate(R.layout.list_view_row, parent, false);
+            View itemView = inflater.inflate(R.layout.list_view_row_contacts, parent, false);
             textView = (TextView) itemView.findViewById(R.id.contact_name);
             settingsButton = (ImageButton)itemView.findViewById(R.id.settings);
             contactImage = (ImageView)itemView.findViewById(R.id.contact_photo);

@@ -97,13 +97,7 @@ public class AddActivity extends AppCompatActivity {
         }
         return savedImage;
     }
-    /*public String getImageSrcString(Uri uri){
-        String[] projection = { MediaStore.Images.Media.DATA};
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-        int index = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(index);
-    }*/
+
 
     public void list(View v){
         startActivity(new Intent(AddActivity.this, ListContactActivity.class));
